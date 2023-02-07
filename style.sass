@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&display=swap')
+    
+$strong-cyan: hsl(171, 66%, 44%)
+$light-blue: hsl(233, 100%, 69%)
+$dark-grayish-blue: hsl(210, 10%, 33%)
+$grayish-blue: hsl(201, 11%, 66%)
+
+*
+    box-sizing: border-box
+    padding: 0
+    margin: 0
+    
+body
+    min-height: 100%
+    font-family: 'Bai Jamjuree', sans-serif
+
+h1, h2, h3 
+    color: $dark-grayish-blue
+h1 
+    font-size: 46px  
+    letter-spacing: -0.75px     
+h2
+    font-size: 36px
+    letter-spacing: -0.59px
+h3
+    font-size: 24px
+    letter-spacing: -0.39px    
+p 
+    font-size: 18px    
+    color: $grayish-blue
+    line-height: 30px
+    letter-spacing: 0.14px
+img
+    max-width: 100%
+    display: block    
+.description
+    font-size: 18px
+    letter-spacing: 0.14px
+    margin-top: 19px
+    max-width: 58ch
+    text-align: center
+
+.container
+    max-width: 1110px
+    margin: 0 auto
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+main     
+    background-image: url('./images/bg-header-desktop.png')
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: top center
+
+// Hero     
+header    
+    img
+        margin: 128px 0 56px 0
+    h1
+        text-align: center      
+    p
+        margin: 16px auto 48px auto
+        max-width: 55ch
+        text-align: center
+        font-size: 20px
+        letter-spacing: 0.15px
+        line-height: 30px
+
+.download
+    button 
+        padding: 15px 30px 
+        border-radius: 50px
+        outline: 0
+        cursor: pointer
+        border: none
+        font-size: 18px
+        color: white
+        &:hover
+            opacity: 0.7
+.ios
+    background-color: $strong-cyan
+    box-shadow: 0 10px 10px rgba(165, 241, 229, 0.3)
+    margin-right: 15px    
+
+.mac
+    background-color: $light-blue   
+    box-shadow: 0 10px 10px rgba(129, 175, 243, 0.3)      
+
+// Section 1 - Keep track of your snippets
+.section1-head
+    text-align: center
+    h2
+        margin-top: 150px      
+
+.snippets
+    display: flex
+    align-items: center
+    margin-top: 80px
+    img 
+        width: 60%
+        margin-left: -5%
+
+.bullets
+    width: 40%
+    margin-left: 110px
+    h3 
+        text-align: left
+    p 
+        text-align: left
+        font-size: 16px
+        margin-top: 8px
+        max-width: 33ch
+        &:not(:last-child) 
+            margin-bottom: 56px
+
+// Section 2 - Access clipboard anywhere
+.section2 
+    margin-top: 150px
+    p 
+        text-align: center
+    img
+        margin-top: 110px        
+
+// Section 3 - Supercharge your flow
+.section3
+    margin-top: 161px
+.workflow-group
+    margin-top: 72px
+    display: flex
+    align-content: flex-start
+.workflow
+    text-align: center
+    &:not(:last-child)
+        margin-right: 30px
+    img
+        margin: auto
+    h3
+        margin-bottom: 16px 
+        margin-top: 40px   
+    p
+        max-width: 30ch            
+
+// Section 4 - logos
+.section4
+    flex-direction: row
+    justify-content: space-between
+    margin: 150px auto
+    
+// Section 5 - Downloads        
+.download
+    margin-top: 48px
+
+// Footer 
+footer
+    margin-top: 150px    
+    background-color: #f1f1f1
+    .container
+        flex-direction: row
+        padding: 39px 0
+        justify-content: space-between
+        align-items: center
+.left
+    display: flex
+    p
+        text-align: left
+        cursor: pointer
+        &:hover
+            color: $strong-cyan
+    p:not(:last-child)
+        margin-bottom: 12px
+    .logo-footer
+        margin-right: 135px
+        margin-top: auto
+        margin-bottom: auto
+        width: 55px
+        height: 55px
+.col:not(:last-child)
+    margin-right: 30px
+    width: 160px
+    align-self: start
+
+.share
+    display: flex
+    img 
+        cursor:  pointer
+    img:not(:first-child)        
+        margin-left: 15px
+    img:hover
+        fill: $strong-cyan
+        opacity: 0.6
+
+@media only screen and (max-width: 1200px)        
+    .container
+        padding-left: calc(8px + 1.5625vw)
+        padding-right: calc(8px + 1.5625vw)
+    .section4 
+        flex-direction: column
+        img:not(:last-child)
+            margin-bottom: 60px
+    footer .container
+        padding-left: calc(8px + 1.5625vw)
+        padding-right: calc(8px + 1.5625vw)
+        .left img
+            margin-right: 50px
+
+@media only screen and (max-width: 700px)        
+    main
+        background-image: url("./images/bg-header-mobile.png") 
+    h1
+        font-size: 32px
+        line-height: auto
+    h2
+        font-size: 28px
+        line-height: auto
+        letter-spacing: -0.46px        
+    p
+        font-size: 16px
+        line-height: 26px 
+        letter-spacing: 0.12px    
+    .description
+        font-size: 16px
+        line-height: 26px
+        letter-spacing: 0.12px
+        margin-top: 16px        
+    header 
+        img
+            margin: 123px 0 64px 0
+        p
+            max-width: 100%            
+    .download 
+        display: flex
+        flex-direction: column
+        width: 100%
+        button
+            padding: 13px auto
+            width: 100%
+            &:not(:last-child)
+                margin-bottom: 24px
+    // Section 1                
+    .section1-head h2 
+        margin-top: 160px
+    .snippets
+        flex-direction: column
+        width: 100%
+        margin-top: 65px
+        img
+            width: 100%
+            margin-left: 0
+        .bullets
+            width: 100%
+            margin-left: 0   
+            margin-top: 56px
+            h3, p
+                text-align: center
+                max-width: 100%
+            p:not(:last-child) 
+                margin-bottom: 48px                
+    // Section 2                
+    .section2
+        margin-top: 186px
+        img
+            margin-top: 64px
+        h2
+            text-align: center            
+
+    // Section 3            
+    .section3
+        margin-top: 130px
+    .workflow-group
+        margin-top: 90px
+        flex-direction: column
+    .workflow
+        &:not(:last-child)
+            margin-right: 0
+            margin-bottom: 56px
+
+    // Section 4
+    .section4
+        margin: 131px auto 170px auto     
+    .section5 h2 
+        text-align: center    
+
+    // Footer        
+    footer
+        margin-top: 170px
+        .container
+            flex-direction: column
+            padding: 52px calc(8px + 1.5625vw)
+    .left
+        flex-direction: column
+        width: 100%
+        justify-content: center
+        align-items: center
+        p
+            text-align: center    
+            margin-bottom: 20px
+            width: 100%
+        .logo-footer
+            margin-right: 0
+            margin-bottom: 40px   
+    .col
+        min-width: 100%
+    .share 
+        margin-top: 48px
+        img:not(:first-child)        
+            margin-left: 40px
