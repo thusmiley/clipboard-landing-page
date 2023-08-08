@@ -54,10 +54,8 @@ main
     background-size: contain
     background-position: top center
 
-// Hero     
+// hero     
 header    
-    img
-        margin: 128px 0 56px 0
     h1
         text-align: center      
     p
@@ -67,6 +65,17 @@ header
         font-size: 20px
         letter-spacing: 0.15px
         line-height: 30px
+.logo
+    margin: 128px 0 56px 0
+    transition-delay: 0.5s
+.logo path
+    stroke-dasharray: 100
+    stroke-dashoffset: 200
+    pointer-events: none
+    animation: animateDash 2s linear forwards infinite
+@keyframes animateDash
+    to 
+        stroke-dashoffset: 0
 
 .download
     button 
@@ -77,6 +86,7 @@ header
         border: none
         font-size: 18px
         color: white
+        transition: 0.3s
         &:hover
             opacity: 0.7
 .ios
@@ -88,8 +98,8 @@ header
     background-color: $light-blue   
     box-shadow: 0 10px 10px rgba(129, 175, 243, 0.3)      
 
-// Section 1 - Keep track of your snippets
-.section1-head
+// Keep track of your snippets
+.snippets-head
     text-align: center
     h2
         margin-top: 150px      
@@ -102,7 +112,7 @@ header
         width: 60%
         margin-left: -5%
 
-.bullets
+.snippets-bullets
     width: 40%
     margin-left: 110px
     h3 
@@ -115,17 +125,17 @@ header
         &:not(:last-child) 
             margin-bottom: 56px
 
-// Section 2 - Access clipboard anywhere
-.section2 
+// Access clipboard anywhere
+.access 
     margin-top: 150px
     p 
         text-align: center
     img
         margin-top: 110px        
 
-// Section 3 - Supercharge your flow
-.section3
-    margin-top: 161px
+// Supercharge your flow
+.supercharge
+    margin-top: 100px
 .workflow-group
     margin-top: 72px
     display: flex
@@ -142,8 +152,8 @@ header
     p
         max-width: 30ch            
 
-// Section 4 - logos
-.section4
+// clients
+.clients
     flex-direction: row
     justify-content: space-between
     margin: 150px auto
@@ -161,7 +171,7 @@ footer
         padding: 39px 0
         justify-content: space-between
         align-items: center
-.left
+.footer-left
     display: flex
     p
         text-align: left
@@ -176,36 +186,46 @@ footer
         margin-bottom: auto
         width: 55px
         height: 55px
-.col:not(:last-child)
+.footer-menu
+    transition: 0.3s
+.footer-menu:not(:last-child)
     margin-right: 30px
     width: 160px
     align-self: start
 
-.share
+.socials
     display: flex
-    img 
+    svg 
+        transition: 0.3s
         cursor:  pointer
-    img:not(:first-child)        
+    svg:not(:first-child)        
         margin-left: 15px
-    img:hover
+    svg:hover path
         fill: $strong-cyan
-        opacity: 0.6
 
-@media only screen and (max-width: 1200px)        
+@media only screen and (max-width: 1024px)        
     .container
         padding-left: calc(8px + 1.5625vw)
         padding-right: calc(8px + 1.5625vw)
-    .section4 
+    .snippets-bullets
+        margin-left: 70px
+    // access                
+    .access img
+        width: 70%
+    // supercharge           
+    .supercharge
+        margin-top: 90px
+    .clients 
         flex-direction: column
         img:not(:last-child)
             margin-bottom: 60px
     footer .container
         padding-left: calc(8px + 1.5625vw)
         padding-right: calc(8px + 1.5625vw)
-        .left img
+        .footer-left img
             margin-right: 50px
 
-@media only screen and (max-width: 700px)        
+@media only screen and (max-width: 768px)        
     main
         background-image: url("./images/bg-header-mobile.png") 
     h1
@@ -235,20 +255,22 @@ footer
         width: 100%
         button
             padding: 13px auto
-            width: 100%
+            width: 50%
+            margin-left: auto
+            margin-right: auto
             &:not(:last-child)
                 margin-bottom: 24px
-    // Section 1                
-    .section1-head h2 
-        margin-top: 160px
+    // snippets               
+    .snippets-head h2 
+        margin-top: 130px
     .snippets
         flex-direction: column
         width: 100%
         margin-top: 65px
         img
-            width: 100%
+            width: 80%
             margin-left: 0
-        .bullets
+        .snippets-bullets
             width: 100%
             margin-left: 0   
             margin-top: 56px
@@ -257,17 +279,20 @@ footer
                 max-width: 100%
             p:not(:last-child) 
                 margin-bottom: 48px                
-    // Section 2                
-    .section2
-        margin-top: 186px
+    // access                
+    .access
+        margin-top: 130px
         img
             margin-top: 64px
+            width: 80%
         h2
             text-align: center            
 
-    // Section 3            
-    .section3
-        margin-top: 130px
+    // supercharge           
+    .supercharge
+        margin-top: 100px
+    .supercharge h2 
+        text-align: center
     .workflow-group
         margin-top: 90px
         flex-direction: column
@@ -276,19 +301,21 @@ footer
             margin-right: 0
             margin-bottom: 56px
 
-    // Section 4
-    .section4
-        margin: 131px auto 170px auto     
-    .section5 h2 
+    // clients
+    .clients
+        margin: 130px auto 
+
+    // download
+    #download h2 
         text-align: center    
 
     // Footer        
     footer
-        margin-top: 170px
+        margin-top: 150px
         .container
             flex-direction: column
             padding: 52px calc(8px + 1.5625vw)
-    .left
+    .footer-left
         flex-direction: column
         width: 100%
         justify-content: center
@@ -300,9 +327,40 @@ footer
         .logo-footer
             margin-right: 0
             margin-bottom: 40px   
-    .col
+    .footer-menu
         min-width: 100%
-    .share 
+    .socials 
         margin-top: 48px
         img:not(:first-child)        
             margin-left: 40px
+
+.scroll 
+    opacity: 0
+    transition: opacity 500ms
+.scroll.scrolled
+    opacity: 1
+.scrolled.fade-in-bottom 
+    animation: fade-in-bottom 1s ease-in-out both
+.scrolled.slide-right 
+    animation: slide-in-right 1s ease-in-out both
+
+@keyframes fade-in-bottom 
+    0% 
+        -webkit-transform: translateY(50px)
+        transform: translateY(50px)
+        opacity: 0
+    100% 
+        -webkit-transform: translateY(0)
+        transform: translateY(0)
+        opacity: 1
+
+@keyframes slide-in-right 
+    0% 
+        -webkit-transform: translateX(100px)
+        transform: translateX(100px)
+        opacity: 0
+  
+    100% 
+        -webkit-transform: translateX(0)
+        transform: translateX(0)
+        opacity: 1

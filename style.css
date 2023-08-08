@@ -11,7 +11,7 @@ body {
 }
 
 h1, h2, h3 {
-  color: hsl(210deg, 10%, 33%);
+  color: hsl(210, 10%, 33%);
 }
 
 h1 {
@@ -31,7 +31,7 @@ h3 {
 
 p {
   font-size: 18px;
-  color: hsl(201deg, 11%, 66%);
+  color: hsl(201, 11%, 66%);
   line-height: 30px;
   letter-spacing: 0.14px;
 }
@@ -65,9 +65,6 @@ main {
   background-position: top center;
 }
 
-header img {
-  margin: 128px 0 56px 0;
-}
 header h1 {
   text-align: center;
 }
@@ -80,6 +77,23 @@ header p {
   line-height: 30px;
 }
 
+.logo {
+  margin: 128px 0 56px 0;
+  transition-delay: 0.5s;
+}
+
+.logo path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 200;
+  pointer-events: none;
+  animation: animateDash 2s linear forwards infinite;
+}
+
+@keyframes animateDash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 .download button {
   padding: 15px 30px;
   border-radius: 50px;
@@ -88,26 +102,27 @@ header p {
   border: none;
   font-size: 18px;
   color: white;
+  transition: 0.3s;
 }
 .download button:hover {
   opacity: 0.7;
 }
 
 .ios {
-  background-color: hsl(171deg, 66%, 44%);
+  background-color: hsl(171, 66%, 44%);
   box-shadow: 0 10px 10px rgba(165, 241, 229, 0.3);
   margin-right: 15px;
 }
 
 .mac {
-  background-color: hsl(233deg, 100%, 69%);
+  background-color: hsl(233, 100%, 69%);
   box-shadow: 0 10px 10px rgba(129, 175, 243, 0.3);
 }
 
-.section1-head {
+.snippets-head {
   text-align: center;
 }
-.section1-head h2 {
+.snippets-head h2 {
   margin-top: 150px;
 }
 
@@ -121,35 +136,35 @@ header p {
   margin-left: -5%;
 }
 
-.bullets {
+.snippets-bullets {
   width: 40%;
   margin-left: 110px;
 }
-.bullets h3 {
+.snippets-bullets h3 {
   text-align: left;
 }
-.bullets p {
+.snippets-bullets p {
   text-align: left;
   font-size: 16px;
   margin-top: 8px;
   max-width: 33ch;
 }
-.bullets p:not(:last-child) {
+.snippets-bullets p:not(:last-child) {
   margin-bottom: 56px;
 }
 
-.section2 {
+.access {
   margin-top: 150px;
 }
-.section2 p {
+.access p {
   text-align: center;
 }
-.section2 img {
+.access img {
   margin-top: 110px;
 }
 
-.section3 {
-  margin-top: 161px;
+.supercharge {
+  margin-top: 100px;
 }
 
 .workflow-group {
@@ -175,7 +190,7 @@ header p {
   max-width: 30ch;
 }
 
-.section4 {
+.clients {
   flex-direction: row;
   justify-content: space-between;
   margin: 150px auto;
@@ -196,20 +211,20 @@ footer .container {
   align-items: center;
 }
 
-.left {
+.footer-left {
   display: flex;
 }
-.left p {
+.footer-left p {
   text-align: left;
   cursor: pointer;
 }
-.left p:hover {
-  color: hsl(171deg, 66%, 44%);
+.footer-left p:hover {
+  color: hsl(171, 66%, 44%);
 }
-.left p:not(:last-child) {
+.footer-left p:not(:last-child) {
   margin-bottom: 12px;
 }
-.left .logo-footer {
+.footer-left .logo-footer {
   margin-right: 135px;
   margin-top: auto;
   margin-bottom: auto;
@@ -217,46 +232,59 @@ footer .container {
   height: 55px;
 }
 
-.col:not(:last-child) {
+.footer-menu {
+  transition: 0.3s;
+}
+
+.footer-menu:not(:last-child) {
   margin-right: 30px;
   width: 160px;
   align-self: start;
 }
 
-.share {
+.socials {
   display: flex;
 }
-.share img {
+.socials svg {
+  transition: 0.3s;
   cursor: pointer;
 }
-.share img:not(:first-child) {
+.socials svg:not(:first-child) {
   margin-left: 15px;
 }
-.share img:hover {
-  fill: hsl(171deg, 66%, 44%);
-  opacity: 0.6;
+.socials svg:hover path {
+  fill: hsl(171, 66%, 44%);
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1024px) {
   .container {
     padding-left: calc(8px + 1.5625vw);
     padding-right: calc(8px + 1.5625vw);
   }
-  .section4 {
+  .snippets-bullets {
+    margin-left: 70px;
+  }
+  .access img {
+    width: 70%;
+  }
+  .supercharge {
+    margin-top: 90px;
+  }
+  .clients {
     flex-direction: column;
   }
-  .section4 img:not(:last-child) {
+  .clients img:not(:last-child) {
     margin-bottom: 60px;
   }
   footer .container {
     padding-left: calc(8px + 1.5625vw);
     padding-right: calc(8px + 1.5625vw);
   }
-  footer .container .left img {
+  footer .container .footer-left img {
     margin-right: 50px;
   }
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
   main {
     background-image: url("./images/bg-header-mobile.png");
   }
@@ -293,13 +321,15 @@ footer .container {
   }
   .download button {
     padding: 13px auto;
-    width: 100%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .download button:not(:last-child) {
     margin-bottom: 24px;
   }
-  .section1-head h2 {
-    margin-top: 160px;
+  .snippets-head h2 {
+    margin-top: 130px;
   }
   .snippets {
     flex-direction: column;
@@ -307,32 +337,36 @@ footer .container {
     margin-top: 65px;
   }
   .snippets img {
-    width: 100%;
+    width: 80%;
     margin-left: 0;
   }
-  .snippets .bullets {
+  .snippets .snippets-bullets {
     width: 100%;
     margin-left: 0;
     margin-top: 56px;
   }
-  .snippets .bullets h3, .snippets .bullets p {
+  .snippets .snippets-bullets h3, .snippets .snippets-bullets p {
     text-align: center;
     max-width: 100%;
   }
-  .snippets .bullets p:not(:last-child) {
+  .snippets .snippets-bullets p:not(:last-child) {
     margin-bottom: 48px;
   }
-  .section2 {
-    margin-top: 186px;
+  .access {
+    margin-top: 130px;
   }
-  .section2 img {
+  .access img {
     margin-top: 64px;
+    width: 80%;
   }
-  .section2 h2 {
+  .access h2 {
     text-align: center;
   }
-  .section3 {
-    margin-top: 130px;
+  .supercharge {
+    margin-top: 100px;
+  }
+  .supercharge h2 {
+    text-align: center;
   }
   .workflow-group {
     margin-top: 90px;
@@ -342,41 +376,78 @@ footer .container {
     margin-right: 0;
     margin-bottom: 56px;
   }
-  .section4 {
-    margin: 131px auto 170px auto;
+  .clients {
+    margin: 130px auto;
   }
-  .section5 h2 {
+  #download h2 {
     text-align: center;
   }
   footer {
-    margin-top: 170px;
+    margin-top: 150px;
   }
   footer .container {
     flex-direction: column;
     padding: 52px calc(8px + 1.5625vw);
   }
-  .left {
+  .footer-left {
     flex-direction: column;
     width: 100%;
     justify-content: center;
     align-items: center;
   }
-  .left p {
+  .footer-left p {
     text-align: center;
     margin-bottom: 20px;
     width: 100%;
   }
-  .left .logo-footer {
+  .footer-left .logo-footer {
     margin-right: 0;
     margin-bottom: 40px;
   }
-  .col {
+  .footer-menu {
     min-width: 100%;
   }
-  .share {
+  .socials {
     margin-top: 48px;
   }
-  .share img:not(:first-child) {
+  .socials img:not(:first-child) {
     margin-left: 40px;
+  }
+}
+.scroll {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.scroll.scrolled {
+  opacity: 1;
+}
+
+.scrolled.fade-in-bottom {
+  animation: fade-in-bottom 1s ease-in-out both;
+}
+
+.scrolled.slide-right {
+  animation: slide-in-right 1s ease-in-out both;
+}
+
+@keyframes fade-in-bottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }/*# sourceMappingURL=style.css.map */
