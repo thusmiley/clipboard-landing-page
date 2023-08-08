@@ -236,6 +236,10 @@ footer .container {
   transition: 0.3s;
 }
 
+.footer-menu a {
+  text-decoration: none;
+}
+
 .footer-menu:not(:last-child) {
   margin-right: 30px;
   width: 160px;
@@ -245,14 +249,14 @@ footer .container {
 .socials {
   display: flex;
 }
-.socials svg {
+.socials a {
   transition: 0.3s;
   cursor: pointer;
 }
-.socials svg:not(:first-child) {
+.socials a:not(:first-child) {
   margin-left: 15px;
 }
-.socials svg:hover path {
+.socials a:hover path {
   fill: hsl(171, 66%, 44%);
 }
 

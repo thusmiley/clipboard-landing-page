@@ -188,6 +188,8 @@ footer
         height: 55px
 .footer-menu
     transition: 0.3s
+.footer-menu a 
+    text-decoration: none
 .footer-menu:not(:last-child)
     margin-right: 30px
     width: 160px
@@ -195,12 +197,12 @@ footer
 
 .socials
     display: flex
-    svg 
+    a 
         transition: 0.3s
         cursor:  pointer
-    svg:not(:first-child)        
+    a:not(:first-child)        
         margin-left: 15px
-    svg:hover path
+    a:hover path
         fill: $strong-cyan
 
 @media only screen and (max-width: 1024px)        
